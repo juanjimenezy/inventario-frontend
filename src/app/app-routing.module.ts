@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 
 const routes: Routes = [
-  //  { path: 'Login', component: LoginComponent, pathMatch: 'full'},
+  { path: '', component: HeaderComponent, pathMatch: 'full'},
   { path: 'Menu/:id', component: HeaderComponent},
   { path: 'Login', component: LoginComponent},
   { path: 'Register', component: RegisterUserComponent},

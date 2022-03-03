@@ -1,5 +1,6 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Globals } from '../globals';
 import { Usuario } from './usuario';
 import { UsuarioService } from './usuario.service';
 
@@ -16,14 +17,24 @@ export class LoginComponent implements OnInit {
   usuarios: Usuario[];
   idUsuario : number;
 
-  constructor(private usuarioService: UsuarioService, public _router : Router) { }
+  constructor(private usuarioService: UsuarioService, public _router : Router, public globals: Globals) { }
 
   ngOnInit(): void {
     this.actualizaUsuarios();
   }
 
   loggear(vIdUSer : number){
-    this.enviar.emit(vIdUSer);
+
+    this.usuarioService.getUsuarioById(vIdUSer).subscribe(
+      (usuario) =>{
+        this.globals.userLogeado = usuario;
+        this.globals.loggeado = true;
+        this._router.navigate(['/Menu',this.globals.userLogeado.id])
+      }
+    );
+
+
+    
   }
 
   actualizaUsuarios(){

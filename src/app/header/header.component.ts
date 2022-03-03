@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Usuario } from '../login/usuario';
 import { UsuarioService } from '../login/usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Globals } from '../globals';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(private usuarioService : UsuarioService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              public globals : Globals) { }
 
   ngOnInit(): void {
     // this.cargarUsuario();
