@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: 'Menu', component: HeaderComponent},
   { path: 'Login', component: LoginComponent},
   { path: 'Register', component: RegisterUserComponent},
-  { path: 'Articulos/:usu', component: ArticulosComponent },
-  { path: 'Articulos/form/:usu', component: FormComponent},
-  { path: 'Articulos/form/:usu/:id', component: FormComponent},
+  { path: 'Articulos', component: ArticulosComponent },
+  { path: 'Articulos/form', component: FormComponent},
+  { path: 'Articulos/form/:id', component: FormComponent},
   { path: 'Cargos', component: CargoComponent}
 
 

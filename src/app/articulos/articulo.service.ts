@@ -27,8 +27,8 @@ export class ArticuloService {
 
   create(idUsu : number,articulo: Articulo) : Observable<Articulo>{
     let params = new HttpParams();
-    params = params.append('id', idUsu);
-    return this.http.post<Articulo>(this.globals.urlArticulos,{headers : this.httpHeaders, params: params}).pipe(
+    params = params.append('idUsuario', this.globals.userLogeado.id);
+    return this.http.post<Articulo>(this.globals.urlArticulos,articulo,{headers : this.httpHeaders, params: params}).pipe(
       catchError(e =>{
         console.error(e.error.mensaje);
         Swal.fire('Error' , e.error.mensaje,'error');
