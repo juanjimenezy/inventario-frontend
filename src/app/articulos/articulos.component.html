@@ -7,7 +7,7 @@
     </div> -->
     <div>
         <button class="btn btn-rounded btn-success text-left my-1" type="button"
-            [routerLink]="['/Articulos/form',usuario.id]">Crear Articulo</button>
+            [routerLink]="['/Articulos/form',globals.userLogeado.id]">Crear Articulo</button>
             <div class="input-group input-group-sm mb-3 my-2">
                 <input placeholder="Nombre de articulo" type="text" name="filtroNombre" class="form" [(ngModel)]="fNombre">
                 <select name="userArt" id="userArt" [(ngModel)]="susers">
@@ -53,7 +53,7 @@
                 <td>
                     <div class="d-flex justify-content-center">
                         <button class="btn btn-primary"
-                            [routerLink]="['/Articulos/form',usuario.id,articulo.id]">Editar</button>
+                            [routerLink]="['/Articulos/form',globals.userLogeado.id]">Editar</button>
                     </div>
                 </td>
                 <td>

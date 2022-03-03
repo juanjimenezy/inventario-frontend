@@ -1,11 +1,10 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CargoService } from '../cargo/cargo.service';
 import { Usuario } from '../login/usuario';
 import { UsuarioService } from '../login/usuario.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { Cargo } from '../cargo/cargo';
-import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-register-user',
@@ -14,7 +13,6 @@ import { LoginComponent } from '../login/login.component';
 })
 export class RegisterUserComponent implements OnInit {
 
-  @ViewChild(LoginComponent) login: LoginComponent;
   
   usuario: Usuario = new Usuario();
   cargos: Cargo[];
@@ -36,8 +34,6 @@ export class RegisterUserComponent implements OnInit {
       (usuario) => {
         Swal.fire('Usuario ', ` ${usuario.nombre} creado con exito!`, 'success');
         this.router.navigate(['/'])
-        this.login.actualizaUsuarios();
-        
       }
     );
   }

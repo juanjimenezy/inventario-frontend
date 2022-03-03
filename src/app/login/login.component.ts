@@ -29,12 +29,9 @@ export class LoginComponent implements OnInit {
       (usuario) =>{
         this.globals.userLogeado = usuario;
         this.globals.loggeado = true;
-        this._router.navigate(['/Menu',this.globals.userLogeado.id])
+        this._router.navigate(['/Menu'])
       }
     );
-
-
-    
   }
 
   actualizaUsuarios(){
@@ -43,6 +40,6 @@ export class LoginComponent implements OnInit {
         this.usuarios = usuarios;
       }
     );
-  }
+  };
 
 }

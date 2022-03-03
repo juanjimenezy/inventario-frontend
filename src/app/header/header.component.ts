@@ -29,35 +29,5 @@ export class HeaderComponent implements OnInit {
   active(){
    this.navmenu = !this.navmenu;
   }
-
-
-  cargarUsuario(){
-    console.log('cargando usuario...')
-    this.activatedRoute.params.subscribe(params =>
-      {
-        let id = params['id']
-        if(id){
-          this.usuarioService.getUsuarioById(id).subscribe(
-            (usuario) =>
-            {
-              this.userLoggeado = usuario;
-              this.logeado = true;
-            }
-          )
-        }
-      }
-    )
-
-  }
-
-  loggeo(id : number){
-    this.usuarioService.getUsuarioById(id).subscribe(
-      (usuario) => {
-        this.userLoggeado = usuario;
-        this.logeado = true;
-      }
-    )
-  }
-
-
+  
 }

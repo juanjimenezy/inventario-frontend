@@ -8,6 +8,7 @@ import { ArticuloService } from './articulo.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioService } from '../login/usuario.service';
 import { HttpParams } from '@angular/common/http';
+import { Globals } from '../globals';
 
 
 @Component({
@@ -17,8 +18,6 @@ import { HttpParams } from '@angular/common/http';
 })
 export class ArticulosComponent implements OnInit {
 
-  usuario : Usuario = new Usuario();
-  usuCreador : Usuario = new Usuario();
   articulos : Articulo[];
   usuariosxArticulo : Usuario[];
 
@@ -28,10 +27,10 @@ export class ArticulosComponent implements OnInit {
   constructor(private articuloService : ArticuloService,
               private usuariosService : UsuarioService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              public globals : Globals) { }
 
   ngOnInit(): void {
-    this.cargarUsuario();
     this.cargarUsuariosOfArticulos();
     this.articuloService.getArticulos().subscribe(
       (articulos) => {
@@ -40,24 +39,8 @@ export class ArticulosComponent implements OnInit {
     );
   }
 
-  cargarUsuario(){
-    this.activatedRoute.params.subscribe(params =>
-      {
-        let id = params['usu']
-        if(id){
-          this.usuariosService.getUsuarioById(id).subscribe(
-            (usuario) =>
-            {
-              this.usuario = usuario;
-            }
-          )
-        }
-      }
-    )
-  }
-
   delete(articulo : Articulo){
-    if(this.usuario.id == articulo.usernameIng.id){
+    if(this.globals.userLogeado.id == articulo.usernameIng.id){
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
           confirmButton: 'btn btn-success',
@@ -76,7 +59,7 @@ export class ArticulosComponent implements OnInit {
         reverseButtons: true
         }).then((result) => {
           if (result.isConfirmed) {
-            this.articuloService.deleteById(articulo.id,this.usuario.id).subscribe(
+            this.articuloService.deleteById(articulo.id,this.globals.userLogeado.id).subscribe(
               response =>
               {
                 this.articulos = this.articulos.filter(arti => arti != articulo);
