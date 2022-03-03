@@ -64,7 +64,7 @@ export class FormComponent implements OnInit {
         text: `La fecha no puede ser mayor a la actual`
       });
     } else {
-      this.articuloService.create(this.globals.userLogeado.id, this.articulo).subscribe(
+      this.articuloService.create(this.articulo).subscribe(
         (articulo) => {
           this.router.navigate(['/Articulos'])
           Swal.fire('Nuevo Articulo', ` ${this.articulo.nombre} creado con exito!`, 'success');
@@ -86,7 +86,7 @@ export class FormComponent implements OnInit {
       this.activateRoute.params.subscribe(params => {
         let idArt = params['id'];
         if (idArt) {
-          this.articuloService.update(idArt, this.globals.userLogeado.id, this.articulo).subscribe(
+          this.articuloService.update(idArt, this.articulo).subscribe(
             (articulo) => {
               this.router.navigate(['/Articulos'])
               Swal.fire('Articulo', `${this.articulo.nombre} actualizado con exito!`, 'success');

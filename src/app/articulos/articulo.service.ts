@@ -25,7 +25,7 @@ export class ArticuloService {
     return this.http.get<Articulo>(`${this.globals.urlArticulos}/${id}`);
   }
 
-  create(idUsu : number,articulo: Articulo) : Observable<Articulo>{
+  create(articulo: Articulo) : Observable<Articulo>{
     let params = new HttpParams();
     params = params.append('idUsuario', this.globals.userLogeado.id);
     return this.http.post<Articulo>(this.globals.urlArticulos,articulo,{headers : this.httpHeaders, params: params}).pipe(
@@ -37,11 +37,11 @@ export class ArticuloService {
     );
   }
 
-  update(idArt : number, idUsu : number, articulo: Articulo):Observable<Articulo>{
+  update(idArt : number, articulo: Articulo):Observable<Articulo>{
     let params = new HttpParams();
     params = params.append('id', idArt);
-    params = params.append('user', idUsu);
-    return this.http.put<Articulo>(this.globals.urlArticulos,{headers: this.httpHeaders, params: params});
+    params = params.append('user', this.globals.userLogeado.id);
+    return this.http.put<Articulo>(this.globals.urlArticulos,articulo,{headers: this.httpHeaders, params: params});
   }
 
   deleteById(id : number, user : number){
