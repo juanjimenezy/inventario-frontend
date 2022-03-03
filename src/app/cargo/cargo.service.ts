@@ -8,7 +8,7 @@ import { Cargo } from './cargo';
 })
 export class CargoService {
 
-  private url:string = 'http://127.0.0.1:8070/Api/cargos';
+  private url:string = 'http://localhost:8070/Api/cargos';
   private httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'});
 
   constructor(private  http: HttpClient) { }

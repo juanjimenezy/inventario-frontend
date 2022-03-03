@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target":"http://191.88.101.56:8070/",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

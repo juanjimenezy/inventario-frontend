@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class UsuarioService {
 
-  private url:string = 'http://127.0.0.1:8070/Api/usuarios';
+  private url:string = 'http://localhost:8070/Api/usuarios';
 
   constructor(private router: Router,private  http: HttpClient) { }
 

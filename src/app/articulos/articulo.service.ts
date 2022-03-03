@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ArticuloService {
 
-  private url:string = 'http://127.0.0.1:8070/Api/articulos';
+  private url:string = 'http://localhost:8070/Api/articulos';
   private httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'});
 
   constructor(private  http: HttpClient) { }
