@@ -18,11 +18,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { Globals } from './globals';
 
-
-export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 
 @NgModule({
@@ -43,8 +40,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     BsDatepickerModule.forRoot(),
     NgbModule,
     BrowserAnimationsModule,
-    TooltipModule.forRoot(),
-    NgxMaskModule.forRoot()
+    TooltipModule.forRoot()
   ],
   providers: [ArticuloService,UsuarioService,CargoService,Globals],
   bootstrap: [AppComponent]
