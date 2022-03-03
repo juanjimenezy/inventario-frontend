@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cargo } from './cargo';
 import { CargoService } from './cargo.service';
 import Swal from 'sweetalert2';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ThisReceiver } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cargo',

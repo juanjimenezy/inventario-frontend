@@ -22,7 +22,7 @@ export class ArticulosComponent implements OnInit {
   usuariosxArticulo : Usuario[];
 
   fNombre : string = null;
-  susers : any;
+  susers : any = null;
 
   constructor(private articuloService : ArticuloService,
               private usuariosService : UsuarioService,
@@ -92,6 +92,9 @@ export class ArticulosComponent implements OnInit {
     if(this.fNombre){
       params = params.append('nombre', this.fNombre);
     }
+
+    console.log(this.susers)
+
     if(this.susers != "null"){
       params = params.append('usuario', this.susers);
     }
