@@ -38,6 +38,9 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(!this.globals.loggeado){
+      this.router.navigate(['/Login'])
+    }else
     this.cargarArticulo();
   }
 
@@ -88,7 +91,7 @@ export class FormComponent implements OnInit {
         if (idArt) {
           this.articuloService.update(idArt, this.articulo).subscribe(
             (articulo) => {
-              this.router.navigate(['/Articulos'])
+              this.router.navigate(['/Articulos']);
               Swal.fire('Articulo', `${this.articulo.nombre} actualizado con exito!`, 'success');
             }
           )

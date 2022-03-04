@@ -3,6 +3,8 @@ import { Cargo } from './cargo';
 import { CargoService } from './cargo.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { Globals } from '../globals';
+
 
 @Component({
   selector: 'app-cargo',
@@ -13,9 +15,12 @@ export class CargoComponent implements OnInit {
 
   cargos : Cargo[];
   cargo : Cargo = new Cargo();
-  constructor(private router: Router,private cargoService : CargoService) { }
+  constructor(private router: Router,private cargoService : CargoService, private globals : Globals) { }
 
   ngOnInit(): void {
+    if(!this.globals.loggeado){
+      this.router.navigate(['/Login'])
+    }else
     this.actualizaCargos();
   }
 

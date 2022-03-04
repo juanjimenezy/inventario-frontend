@@ -31,6 +31,10 @@ export class ArticulosComponent implements OnInit {
               public globals : Globals) { }
 
   ngOnInit(): void {
+    if(!this.globals.loggeado){
+      this.router.navigate(['/Login'])
+    }else
+
     this.cargarUsuariosOfArticulos();
     this.articuloService.getArticulos().subscribe(
       (articulos) => {

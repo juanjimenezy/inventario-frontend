@@ -20,7 +20,9 @@ export class HeaderComponent implements OnInit {
               public globals : Globals) { }
 
   ngOnInit(): void {
-    // this.cargarUsuario();
+    if(!this.globals.loggeado){
+      this.router.navigate(['/Login'])
+    }
   }
 
   navmenu : boolean = false;
