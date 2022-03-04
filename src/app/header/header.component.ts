@@ -12,7 +12,6 @@ import { Globals } from '../globals';
 export class HeaderComponent implements OnInit {
 
   logeado : boolean = false;
-  userLoggeado : Usuario;
 
 
   constructor(private usuarioService : UsuarioService,
